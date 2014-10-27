@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Vue.js tutorial</title>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+</head>
+<body>
+  <div class="container">
+    <div id="todo-list">
+      <h1>{{ title | uppercase }}</h1>
+      <div class="form-inline">
+        <div class="form-group">
+          <input class="form-control col-xs-4" v-model="todoText" placeholder="Input TODO">
+        </div>
+        <button class="btn btn-primary" v-on="click:add" v-attr="disabled:!todoText">Add</button>
+        <button class="btn btn-danger" v-on="click:deleteAll">Delete All</button>
+      </div>
+      <ul>
+        <li v-repeat="todos" v-on="click: done = !done">
+          {{ content }}
+          <button class="btn btn-success btn-xs" v-on="click:delete"><i class="fa fa-check"></i></button>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/0.10.6/vue.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
