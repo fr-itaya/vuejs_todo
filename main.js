@@ -1,3 +1,5 @@
+var milkcocoa = new MilkCocoa("http://io-wi1roseru.mlkcca.com");
+
 new Vue({
   el: "#todo-list",
   data: {
@@ -8,7 +10,7 @@ new Vue({
   methods: {
     add:function() {
       this.todos.push({
-        content: new Date() + " " + this.todoText
+        content: this.todoText
       });
       this.todoText = "";
     },
