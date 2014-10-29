@@ -1,7 +1,18 @@
-var milkcocoa = new MilkCocoa("http://io-wi1roseru.mlkcca.com");
+(function() {
+// TODO: Access-Control-Allow-origin対策してからコメント外す
+//var milkcocoa = new MilkCocoa("http://io-wi1roseru.mlkcca.com");
 
-new Vue({
-  el: "#todo-list",
+var app = new Vue({
+  el: "#content",
+  data: {
+    currentView: null
+  }
+});
+
+app.currentView = "todo";
+
+Vue.component('todo', {
+  template: "#todo-list-template",
   data: {
     title: "今日のTODOs",
     //model
@@ -24,3 +35,5 @@ new Vue({
     }
   }
 });
+
+})();

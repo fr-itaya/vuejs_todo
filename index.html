@@ -9,6 +9,11 @@
 </head>
 <body>
   <div class="container">
+    <div id="content">
+      <div v-view="currentView"></div>
+    </div>
+  </div>
+  <script id="todo-list-template" type="text/template">
     <div id="todo-list">
       <h1>{{ title | uppercase }}</h1>
       <div class="form-inline">
@@ -25,7 +30,7 @@
         </li>
       </ul>
     </div>
-  </div>
+  </script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
   <script src="http://cdn.mlkcca.com/v0.2.7/milkcocoa.js"></script>
