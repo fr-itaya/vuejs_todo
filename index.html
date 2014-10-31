@@ -2,12 +2,18 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>Vue.js tutorial</title>
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 </head>
 <body>
   <div class="container">
+    <div id="content">
+      <div v-view="currentView"></div>
+    </div>
+  </div>
+  <script id="todo-list-template" type="text/template">
     <div id="todo-list">
       <h1>{{ title | uppercase }}</h1>
       <div class="form-inline">
@@ -24,9 +30,25 @@
         </li>
       </ul>
     </div>
-  </div>
+  </script>
+  <script id="register-template" type="text/template">
+    <div id="register">
+      <form class="form-horizontal" role="form">
+        <h2>新規登録</h2>
+        <div class="form-group">
+          <input class="form-control col-xs-4" type="email" v-model="email" placeholder="Email address" required autofocus>
+          <input class="form-control col-xs-4" type="password" v-model="password" placeholder="Password" required>
+          <input class="form-control col-xs-4" type="password" v-model="confirm" placeholder="Confirm password" required>
+        </div>
+        <div v-text="message"></div>
+        <button class="btn btn-primary" v-on="click: register()">新規登録</button>
+        <a class="btn" v-on="click: goto_login_view()">ログインはこちら</a>
+      </form>
+    </div>
+  </script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script src="http://cdn.mlkcca.com/v0.2.7/milkcocoa.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/vue/0.10.6/vue.min.js"></script>
   <script src="main.js"></script>
 </body>
