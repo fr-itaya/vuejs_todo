@@ -47,7 +47,18 @@
       register: function() {
         var self = this;
         if(this.password != this.confirm) return;
-
+        milkcocoa.addAccount(this.email,
+                             this.password,
+                             {},
+                             function(err, usr) {
+          if (err == MilkCocoa.Error.AddAccount.FormatError) {
+            self.message = "Format error!";
+          } else if(err == MilkCocoa.Error.AddAccount.AlreadyExist) {
+            self.message = "The e-mail address is already exists!";
+          } else {
+            app.currentView = "login";
+          }
+        });
       },
       goto_login_view: function() {
         app.currentView = "login";
