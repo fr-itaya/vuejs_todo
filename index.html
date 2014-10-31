@@ -31,6 +31,21 @@
       </ul>
     </div>
   </script>
+  <script id="register-template" type="text/template">
+    <div id="register">
+      <form class="form-horizontal" role="form">
+        <h2>新規登録</h2>
+        <div class="form-group">
+          <input class="form-control col-xs-4" type="email" v-model="email" placeholder="Email address" required autofocus>
+          <input class="form-control col-xs-4" type="password" v-model="password" placeholder="Password" required>
+          <input class="form-control col-xs-4" type="password" v-model="confirm" placeholder="Confirm password" required>
+        </div>
+        <div v-text="message"></div>
+        <button class="btn btn-primary" v-on="click: register()">新規登録</button>
+        <a class="btn" v-on="click: goto_login_view()">ログインはこちら</a>
+      </form>
+    </div>
+  </script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
   <script src="http://cdn.mlkcca.com/v0.2.7/milkcocoa.js"></script>
