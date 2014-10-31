@@ -1,6 +1,6 @@
 (function() {
   // TODO: Access-Control-Allow-origin対策してからコメント外す
-  //var milkcocoa = new MilkCocoa("http://io-wi1roseru.mlkcca.com");
+  var milkcocoa = new MilkCocoa("https://io-wi1roseru.mlkcca.com");
 
   var app = new Vue({
     el: "#content",
@@ -47,6 +47,7 @@
       register: function() {
         var self = this;
         if(this.password != this.confirm) return;
+
       },
       goto_login_view: function() {
         app.currentView = "login";
